@@ -1,0 +1,11 @@
+<% if @contact %>
+<%= render partial: 'contact', locals: {contact: @contact} %>
+<% else %>
+No such contact was found!
+<% end %> <br />
+
+
+ &nbsp &nbsp &nbsp
+ <button type="button" id="next_contact" data-nextUrl="/contacts/<%= @contact.id.to_i + 1 %>/get" class="btn btn-primary" aria-pressed="false" autocomplete="off" onclick="nextContact()">
+    Next
+  </button>

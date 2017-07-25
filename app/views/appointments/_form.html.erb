@@ -1,0 +1,44 @@
+<%= render partial: "error_fields", locals: {appointment: appointment} %>
+
+<%= form_for appointment do |f| %>
+<table>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td class="left"><%= f.text_field :name, :placeholder=>"Name" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :description %></td>
+    <td class="left"><%= f.text_area :description, :placeholder=>"Description" %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :start_time %></td>
+    <td class="left"><%= f.datetime_local_field :start_time %> </td>
+  </tr>
+
+  <%= render partial: "existing_fields", locals: {f: f} %>
+    <td></td>
+
+    <tr>
+      <td><legend></legend></td>
+      <td class="left">Create a new Contact for this appointment: </td>
+    </tr>
+    <%= f.fields_for :contact, Contact.new do |g| %>
+      <%= render partial: "contact_fields", locals: {g: g} %>
+    <% end %>
+    <td></td>
+
+  <tr>
+    <td><legend></legend></td>
+    <td class="left">Create a new Location for this appointment: </td>
+  </tr>
+    <%= f.fields_for :location, Location.new do |g| %>
+      <%= render partial: "location_fields", locals: {g: g} %>
+    <% end %>
+    <td></td>
+
+  <tr>
+    <td></td>
+    <td class="left"><%= f.submit %></td>
+  </tr>
+</table>
+<% end %>

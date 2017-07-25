@@ -1,0 +1,22 @@
+<fieldset>
+  <legend>Appointments Index</legend>
+</fieldset>
+
+<% if @appointments.length == 1 %>
+<h4 class="notice">You have <%=@appointments.length%> upcoming appointment.</h4><br/>
+<% elsif @appointments.length > 1 %>
+<h4 class="notice">You have <%=@appointments.length%> upcoming appointments.</h4><br/>
+<% else %>
+No appointments were found! <br /><br />
+<% end %>
+
+<% if @appointments.length > 0 %>
+<button type="button" id="list_appointments" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+  List Appointments
+</button>
+<% else %>
+<%= link_to "Click here to create an appointment.", new_appointment_path %>
+<% end %>
+
+<div id="appointments_list"><div>
+<!-- <%= render(@appointments) || "No appointments were found!" %> -->

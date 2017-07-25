@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default" role="navigation" id="navbar">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Appointment Manager</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Appointments <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" id="dropdown_nav">
+            <li><%= link_to "View this Month", appointments_path %>
+            <li><%= link_to "View this Week", appointments_path(:week=>"week") %></li>
+            <li><%= link_to "Create Appointment", new_appointment_path %></a></li>
+            <li class="divider"></li>
+            <li><%= link_to "List Upcoming Appointments", appointments_path(:list=>"list") %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Contacts <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" id="dropdown_nav">
+            <li><%= link_to "View all Contacts", contacts_path %>
+            <li><%= link_to "Create new Contact", new_contact_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Locations <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" id="dropdown_nav">
+            <li><%= link_to "View all Locations", locations_path %>
+            <li><%= link_to "Create new Location", new_location_path %></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if user_signed_in? %>
+          <p class="navbar-text" id="Signout_link"><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></p>
+        <% else %>
+          <p class="navbar-text" id="Login_link"><%= link_to "Log In", new_user_session_path %></p>
+			</ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    <% end %>
+  </div><!-- /.container-fluid -->
+</nav>

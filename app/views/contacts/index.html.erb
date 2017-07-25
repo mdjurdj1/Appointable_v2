@@ -1,0 +1,47 @@
+<fieldset>
+  <legend>Contacts Index</legend>
+</fieldset>
+
+<div>
+  <h4>Search By Name:</h4>
+  <%= form_tag("/contacts", method: :get) do %>
+    <%= text_field_tag "contact" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div> <br />
+
+<%= render(@contacts) || "You haven't saved any contacts yet!" %>
+
+<div class="hidden" id="hiddenContactField">
+  <div class="boxed">
+    <fieldset>
+      <legend>New Contact</legend>
+    </fieldset>
+    <%= form_for Contact.new, html: {id: "newContactForm"}  do |f| %>
+    <table>
+      <tr>
+        <td><%= f.label :name %></td>
+        <td class="left"><%= f.text_field :name %> </td>
+      </tr>
+
+        <tr>
+          <td><%= f.label :email %></td>
+          <td class="left"><%= f.text_field :email %> </td>
+        </tr>
+
+      <tr>
+        <td><%= f.label :phone_number, "Phone" %></td>
+        <td class="left"><%= f.text_field :phone_number %> </td>
+      </tr>
+      <tr> <td></td>
+        <td class="left"><%= f.submit %></td>
+      </tr>
+      </table>
+      <% end %>
+    </div>
+  </div><br />
+
+&nbsp &nbsp &nbsp
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="showContactForm()">
+  Create New Contact
+</button>

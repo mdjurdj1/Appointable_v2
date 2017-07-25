@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-4">
+
+      <fieldset>
+        <legend>Create a New Appointment!</legend>
+      </fieldset>
+
+        <%= render partial: 'appointments/form', locals: {appointment: @appointment} %>
+    </div>
+
+  <div class="col-md-8">
+    <%= show_weekly_calendar(@appointments) %>
+  </div>
+
+</div>

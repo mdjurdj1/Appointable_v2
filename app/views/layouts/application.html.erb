@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointment Manager</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+  </head>
+
+  <body class="<%= body_class %>">
+      <%= render 'layouts/navbar' %>
+      <div class="main container">
+        <%= render 'layouts/errors' unless current_page = root_path %>
+        <%= yield %>
+      </div><!--/container-->
+    <%= render 'layouts/footer' %>
+
+  </body>
+
+</html>
