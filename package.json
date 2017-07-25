@@ -1,5 +1,23 @@
 {
-  "name": "Appointable_v2",
-  "private": true,
-  "dependencies": {}
+  "name": "rails_webpack_npm_es6",
+  "version": "1.0.0",
+  "main": "app-js/main.js",
+  "scripts": {
+    "heroku-postbuild": "webpack"
+  },
+  "author": "Michael Djurdjevic",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.7.0"
+  },
+  "scripts": {
+  "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "konva": "^1.4.0"
+  }
 }
